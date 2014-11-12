@@ -152,6 +152,7 @@ function parsearDetalleEvento(data) {
     $(".datosIzquierda.evento").html(acumulador);
     $(".imgDetalleEvento").html("<img src='" + evento.urlImagen + "' alt='" + evento.altImagen + "'/>");
     $(".cuerpoDetalleEvento").html("<span>" + evento.altImagen + "</span><p>" + evento.descripcion + "</p>");
+    alert("evento"+acumulador)
     try {
         cargaBannersEvento();
     } catch (e) {
@@ -811,7 +812,7 @@ function parsearListadoActividades(data) {
         acumulador += "</li>";
     }
     listado.innerHTML = acumulador;
-
+    alert("actividad"+acumulador)
 
 
     var ancho = window.innerWidth;
