@@ -169,8 +169,8 @@ function parsearDetalleEvento(data) {
             e.stopPropagation();
     });
     sessionSetLoader = true;
-
-    document.location.href="#actividades"
+$("#canvasLoader").hide()
+    
 }
 
 var timer1;
