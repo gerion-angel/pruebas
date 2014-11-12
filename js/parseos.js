@@ -89,6 +89,7 @@ function parsearListadoEventos(data, id) {
  * funcion que parsea y muestra el detalle de un evento
  */
 function parsearDetalleEvento(data) {
+    alert('entra parsear eventos')
     var zona = document.getElementById('zonaDetalleEvento');
     $(".descripcionFiltro").html('');
     zona.style.display = '';
@@ -716,6 +717,7 @@ function parsearListadoLugares(data) {
  * funcion que parsea el listado de actividades filtradas que devuelve el ser vicio
  */
 function parsearListadoActividades(data) {
+    alert('entra parsear actividad')
     if (sessionSoloUnEvento == true && (sessionFiltroTematica != -1 || sessionFiltroLugar != -1 || sessionFiltroTematica2 != -1 || sessionFiltroParticipantes != -1 || sessionFiltroFecha != -1 || sessionFiltroEtiqueta != -1)) {
         document.getElementById('backListadoActividades').style.display = 'block';
     }
