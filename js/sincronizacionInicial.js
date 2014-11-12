@@ -1,5 +1,5 @@
 (function (){
-    if(getData('primerEventoCoachMark')!= null && getData('primerEventoCoachMark')!=1){ //para que solo se llame una sola vez
+    //if(getData('primerEventoCoachMark')!= null && getData('primerEventoCoachMark')!=1){ //para que solo se llame una sola vez
         var auth = make_base_auth("app", "Kurbana2k14");
         $.ajaxSetup({
             headers: {
@@ -37,7 +37,7 @@
             insertActividadEventoSincroInicial(data.actEvento);
             /**/
         });
-    }
+    //}
 })()
 
 function sincroBorrados(){

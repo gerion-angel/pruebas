@@ -99,7 +99,11 @@ function parsearDetalleEvento(data) {
     var evento = data[0];
     document.getElementById("cabeceraInfoDetalleEvento").style.backgroundImage = "url('" + evento.urlImagen + "')";
     acumulador += "<span>" + evento.nombre + "</span>";
-    acumulador += "<span>" + evento.nombreLugar + "</span>";
+    if (evento.nombreLugar != undefined) {
+        acumulador += "<span>" + evento.nombreLugar + "</span>";
+    } else {
+        acumulador += "<span> </span>";
+    }
 //    acumulador += "<span>del " + getFechaSolo(evento.fechaInicioOficial) + " al " + getFechaSolo(evento.fechaFinOficial) + "</span>";
     acumulador += "<span>" + evento.horaInicioOficial + " - " + evento.horaFinOficial + "</span>";
     $("#cabeceraInfoDetalleEvento div div").html(acumulador);

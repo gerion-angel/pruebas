@@ -1420,7 +1420,8 @@ function selectDetalleEvento() {
                         entradilla: results.rows.item(i).entradilla,
                         fechaInicioOficial: results.rows.item(i).fecha_inicio_oficial,
                         altImagen: results.rows.item(i).alt_imagen,
-                        fechaFinOficial: results.rows.item(i).fecha_fin_oficial
+                        fechaFinOficial: results.rows.item(i).fecha_fin_oficial,
+                        nombreLugar: results.rows.item(i).nombre_lugar
                     })
                 }
                 parsearDetalleEvento(data);
@@ -2017,8 +2018,8 @@ function selectNomenclaturaMenu() {
 function selectListadoLugares() {
     try {
         db.transaction(function (tx) {
-            if (sessionFiltroEvento > -1) {
-                tx.executeSql('SELECT l.id AS id,' +
+            if (sessionFiltroEvento > -1) {//disctinct para evitar se dupliquen registros mostrados
+                tx.executeSql('SELECT DISTINCT l.id AS id,' +
                         ' l.urlImagen AS url_imagen,' +
                         ' l.nombre AS nombre ' +
                         ' FROM lugar AS l,' +
@@ -2040,8 +2041,8 @@ function selectListadoLugares() {
                     parsearListadoLugares(data);
                     return data;
                 });
-            } else if (sessionFiltroTematica > -1) {
-                tx.executeSql('SELECT l.id AS id,' +
+            } else if (sessionFiltroTematica > -1) {//disctinct para evitar se dupliquen registros mostrados
+                tx.executeSql('SELECT DISTINCT l.id AS id,' +
                         ' l.urlImagen AS url_imagen,' +
                         ' l.nombre AS nombre ' +
                         ' FROM lugar AS l,' +
