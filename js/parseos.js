@@ -1,4 +1,4 @@
-/*
+/* *
  * funcion que carga un listado de eventos en un listado pasados ambos como parametros
  * */
 function parsearListadoEventos(data, id) {
@@ -209,6 +209,11 @@ function parsearBannersEvento(data) {
         $(".zonaBannerEvento").html(acumulador);
         $('.linkBannerActividad1').addClass('visible');
         timer2 = setTimeout(cambiaBannerActividad2, 5000);
+        $(".bannerZone a img").each(function(){
+            if($(this).attr('src')=='undefined'){
+                $(this).remove();
+            }
+        })
     } else {
         sessionHayBanners = -1;
         $(".zonaBannerEvento").html("");
@@ -759,7 +764,7 @@ function parsearListadoActividades(data) {
         acumulador += "<div class='fichaActividad'>";
         acumulador += "<table class='tabla1ListadoActividades'><tr>"
         if (img != null && img != "") {
-            acumulador += "<td><div class='thumnailActividad' style='background-image:url(" + img + ")'></div></td>";
+            acumulador += "<td><div class='thumnailActividad' style=\"background-image:url('" + img + "')\"></div></td>";
 
         }
         acumulador += "<td><span>" + nombre + "</span></td></tr></table>";
@@ -1040,8 +1045,8 @@ function parsearActividad(data) {
         $("#zonaGaleriaDetalleActi").html("")
     }//error en el parseo de la galeria
 
-    var data=[{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"}]
-     parsearGaleriaImagenesActividad(data)
+    /*var data=[{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"}]
+     parsearGaleriaImagenesActividad(data)*/
 
     if (activity.entradilla)
         acumulador = activity.entradilla;

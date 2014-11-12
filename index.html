@@ -12,7 +12,7 @@
         <link rel="shortcut icon" type="image/ico" href="favIcon.png" />
 
         <link href="css/estilosResponsive.css" rel="stylesheet"/><!-- para la visualizacion responsive -->
-        <!--<link href="css/estilosWeb.css" rel="stylesheet"/><!-- para la visualizacion web -->
+        <link href="css/estilosWeb.css" rel="stylesheet"/><!-- para la visualizacion web -->
         <link href="css/jquery.mobile.datepicker.css" rel="stylesheet"/>
 
         <script src="js/jquery-1.10.2.js"></script>
@@ -71,8 +71,12 @@
         <link href="css/mobiscroll.scroller.wp.css" rel="stylesheet" type="text/css" />
 
         <link href="css/mobiscroll.animation.css" rel="stylesheet" type="text/css" />
-        <script src="js/imgTransfer.js"></script>
+
+        <!--<script src="js/imgTransfer.js"></script>-->
         <script src="js/webBBDD.js"></script>
+        <script src="js/rrule.js"></script>
+        <script src="js/sincronizacionInicial.js"></script>
+        <script src="js/tratamientoFechas.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/storeRedirect.js"></script>
         <script type="text/javascript" charset="utf-8" src="js/QRController.js"></script><!-- Para los QR web -->
         <!--<script type="text/javascript" charset="utf-8" src="js/PushNotification.js"></script>-->
@@ -180,13 +184,13 @@
                 <ul data-role="listview">
                     <li class="primerElementoMenu">Descubrir</li>
                     <li><a class="cercaMenu" onclick="checkConnection();
-                            if (primerFalloConexion == false){
+                            if (primerFalloConexion == false) {
                                 //launchPop();
-                            }else {
+                            } else {
                                 document.location.href = '#ahoraCerca'
                             }" href="#ahoraCerca">Ahora y Cerca</a></li>
                     <li><a class="fechaMenu" onclick="checkConnection();
-                            if (primerFalloConexion == false){
+                            if (primerFalloConexion == false) {
                                 //launchPop();
                             } else {
                                 document.location.href = '#fecha'
@@ -264,18 +268,18 @@
                     <li class="primerElementoMenu">Descubrir</li>
                     <li><a class="cercaMenu" onclick="sessionSegundoFiltro = 1;
                             checkConnection();
-                            if (primerFalloConexion == false){
+                            if (primerFalloConexion == false) {
                                 //launchPop();
-                            }else {
+                            } else {
                                 document.location.href = '#ahoraCerca'
                             }" href="#ahoraCerca">Ahora y Cerca</a></li>
                     <li><a class="fechaMenu" onclick="sessionSegundoFiltro = 2;
                             checkConnection();
-                            if (primerFalloConexion == false){
+                            if (primerFalloConexion == false) {
                                 //launchPop();
-                            }else {
+                            } else {
                                 document.location.href = '#fecha'
-                            }" href="fecha">Fecha</a></li>
+                            }" href="#fecha">Fecha</a></li>
                     <li><a class="lugaresMenu" href="#lugares" onclick="sessionSegundoFiltro = 3">Lugares</a></li>
                     <li class='noMostrar'><a class="favoritosMenu" href="#favoritas" onclick="sessionSegundoFiltro = 4">Favoritos</a></li>
                     <li><a class="participantesMenu" href="#participantes" onclick="sessionSegundoFiltro = 5">Participantes</a></li>
@@ -293,13 +297,16 @@
                 <h1 id="tituloListadoActividades">Actividades</h1>
             </div>
             <div data-role="content">
-                <div id="zonaDetalleEvento" class="detalleFiltro" onclick="checkConnection();$.mobile.changePage('#paginaDetalleEvento')">
+                <div id="zonaDetalleEvento" class="detalleFiltro" onclick="checkConnection();
+                        $.mobile.changePage('#paginaDetalleEvento')">
 
                 </div>
-                <div id="zonaDetalleLugar" class="detalleFiltro" onclick="checkConnection();$.mobile.changePage('#paginaDetalleLugar')">
+                <div id="zonaDetalleLugar" class="detalleFiltro" onclick="checkConnection();
+                        $.mobile.changePage('#paginaDetalleLugar')">
 
                 </div>
-                <div id="zonaDetalleParticipante" class="detalleFiltro" onclick="checkConnection();$.mobile.changePage('#paginaDetalleParticipante') ">
+                <div id="zonaDetalleParticipante" class="detalleFiltro" onclick="checkConnection();
+                        $.mobile.changePage('#paginaDetalleParticipante')">
 
                 </div>
                 <div class="descripcionFiltro"></div>
@@ -537,7 +544,7 @@
                 </ul>
             </div>
         </div>
-        
+
         <!-- lugar-->
         <div data-role="page" id="paginaDetalleLugar">
             <div data-role="header"  data-position="fixed">
@@ -562,16 +569,16 @@
 
         <!--<div class='popUpStore' style="display:none" >
             <div class="cajaStore fichaActividad">
-			<table style="text-align: -webkit-center;text-align: center;margin: auto;"><tr><td>
-			<br/>
+                        <table style="text-align: -webkit-center;text-align: center;margin: auto;"><tr><td>
+                        <br/>
                 <span>¿Quiere descargar la aplicación MundialPadel para su dispositivo?</span>
                 </td></tr><tr><td>
-				<br/>
-				<div>
+                                <br/>
+                                <div>
                     <input type="button" value="Descargar" class="aceptar"/>
                     <input type="button" value="Cancelar" class="cancelar"/>
                 </div>
-				</td></tr></table>
+                                </td></tr></table>
             </div>
         </div>-->
 
@@ -624,7 +631,7 @@
                 } catch (e) {
 
                 }
-                
+
                 hideLoader();
             }
             $("#filtroCalendario").datepicker();
@@ -635,11 +642,13 @@
         </script>
         <script>
             document.addEventListener('deviceready', function () {
+
                 try {
-                    try{
+                    try {
                         navigator.device.resetBackButton();
                         navigator.app.overrideBackbutton(true);
-                    } catch(exce){}
+                    } catch (exce) {
+                    }
                     document.addEventListener('backKeyDown', manejaBack, false);
                     function manejaBack() {
                         if ($.mobile.activePage.is('#indice')) {
@@ -866,7 +875,7 @@
             try {//lanzar el popUp de ir a store si es mobile
                 if (navigator.userAgent.match(/Android|iPhone|IEMobile/i)) {
                     //aqui hay que comprobar si se debe mostrar el popUp desgún el server y de ser asi cambiar el texto
-                    
+
                     cargaInfoDescarga();
                 } else {
                     $('.popUpStore').remove();
@@ -890,6 +899,7 @@
         </script>
 
         <script type="text/javascript">
+            sincroBorrados();
             if ($(window).width() >= 768 && !navigator.userAgent.match(/iPhone/i)) {
                 $('head').append('<meta id="viewport" name="viewport" content="width=768">');
                 $(".coachMark.evento img").attr("src", "images/coachMarks/event_coachmark_ipad.png")
@@ -897,6 +907,7 @@
             } else {
                 $('head').append('<meta id="viewport" name="viewport" content="width=320">');
             }
+
         </script>
         <script src="js/coachMarkLib.js"></script>
         <div id="home" style="display:none">

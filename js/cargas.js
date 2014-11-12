@@ -104,9 +104,9 @@ function cargaInfoDescarga() {
             console.log(data)
             var mostrar = data[0].mostrarMensaje;
             var texto = data[0].mensajeDescargar;
-            console.info(mostrar)    
-            console.info(texto)    
-                
+            console.info(mostrar)
+            console.info(texto)
+
             if (mostrar == true) {
                 $('.popUpStore .cajaStore table tr td span').html(texto)
                 $('.popUpStore').show();
@@ -694,6 +694,50 @@ function registro() {
     setCheckConnection()
 }
 
+function cargaBorrados() {
+    var auth = make_base_auth("app", "Kurbana2k14");
+    $.ajaxSetup({
+        headers: {
+            'Authorization': auth
+        }
+    });
+    if (getData("ultimoBorrado") == null) {
+        saveData("ultimoBorrado", 0);
+    }
+    var ruta = sessionPath + "proyecto/getBorrados?id=" + sessionProyecto + "&ultimoBorrado=" + getData("ultimoBorrado")
+    $.getJSON(ruta, null, function (data) {
+        saveData("ultimoBorrado", new Date().getTime());
+        if (data.eventos) {
+            deleteEventos(data.eventos)
+        }
+        if (data.etiquetas) {
+            deleteEtiquetas(data.etiquetas)
+        }
+        if (data.participantes) {
+            deleteParticipantes(data.participantes)
+        }
+        if (data.Tematicas) {
+            deleteTematicas(data.tematicas)
+        }
+        if (data.actividad) {
+            deleteActividad(data.actividad)
+        }
+        if (data.lugares) {
+            deleteEventos(data.lugares)
+        }
+        if (data.patrocinadores) {
+            deletePatrocinadores(data.patrocinadores)
+        }
+        if (data.banners) {
+            deleteBanners(data.banners)
+        }
+        if (data.nomenclatura) {
+            deleteNomenclaturaMenu(data.nomenclatura)
+        }
+
+    });
+}
+
 function cargaDiasConActividad() {
     var auth = make_base_auth("app", "Kurbana2k14");
     $.ajaxSetup({
@@ -726,10 +770,13 @@ function cargaDiasConActividad() {
 
     sessionMesPintar = numMes;
     sessionAnnoPintar = numAnno;
-
-    $.getJSON(ruta, null, function (data) {
-        pintaDiasConActividad(data)
-    });
+    if (primerFalloConexion == true) {
+        $.getJSON(ruta, null, function (data) {
+            pintaDiasConActividad(data)
+        });
+    } else {
+        selectDiasConActividad(numMes, numAnno);
+    }
 
 
     $("#filtroCalendario").datepicker();

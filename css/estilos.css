@@ -471,7 +471,7 @@ div#detalleActBolaRoja {
     padding: 0px;
     margin: 0px;
     overflow-y: hidden;
-    margin-bottom: 20px;
+    /* margin-bottom: 20px; */
 }
 #listadoActividades li:first-child{
     padding-top: 6px;
