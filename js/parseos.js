@@ -89,7 +89,6 @@ function parsearListadoEventos(data, id) {
  * funcion que parsea y muestra el detalle de un evento
  */
 function parsearDetalleEvento(data) {
-    alert(data)
     var zona = document.getElementById('zonaDetalleEvento');
     $(".descripcionFiltro").html('');
     zona.style.display = '';
@@ -172,6 +171,7 @@ function parsearDetalleEvento(data) {
     sessionSetLoader = true;
 
     alert('sale parsear detalleDe evento')
+    document.location.href="#actividades"
 }
 
 var timer1;
