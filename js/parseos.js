@@ -83,6 +83,8 @@ function parsearListadoEventos(data, id) {
     $("#listadoEventosIndice li").on("MSPointerOut", function () {
         $(this).css('left', "0px")
     })
+
+    $("#canvasLoader").remove()
 }
 
 /*
@@ -169,8 +171,8 @@ function parsearDetalleEvento(data) {
             e.stopPropagation();
     });
     sessionSetLoader = true;
-$("#canvasLoader").remove()
-    
+    $("#canvasLoader").remove()
+
 }
 
 var timer1;
@@ -211,8 +213,8 @@ function parsearBannersEvento(data) {
         $(".zonaBannerEvento").html(acumulador);
         $('.linkBannerActividad1').addClass('visible');
         timer2 = setTimeout(cambiaBannerActividad2, 5000);
-        $(".bannerZone a img").each(function(){
-            if($(this).attr('src')=='undefined'){
+        $(".bannerZone a img").each(function () {
+            if ($(this).attr('src') == 'undefined') {
                 $(this).remove();
             }
         })
@@ -741,7 +743,7 @@ function parsearListadoActividades(data) {
         }
     } catch (e) {
     }//si falla el servicio
-    
+
     if (data.data.length == 0 && sessionFiltroParticipantes > -1) {
         $("#zonaDetalleParticipante").click();
     }
@@ -809,7 +811,7 @@ function parsearListadoActividades(data) {
         acumulador += "</li>";
     }
     listado.innerHTML = acumulador;
-    
+
 
 
     var ancho = window.innerWidth;
@@ -821,6 +823,8 @@ function parsearListadoActividades(data) {
     setTimeout(function () {
         $("#tituloListadoActividades").click();//arregla una descolocacion haciendo un click en un punto de la pantalla
     }, 700);
+
+    $("#canvasLoader").remove()
 }
 
 /*
