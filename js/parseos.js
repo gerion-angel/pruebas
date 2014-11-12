@@ -89,7 +89,7 @@ function parsearListadoEventos(data, id) {
  * funcion que parsea y muestra el detalle de un evento
  */
 function parsearDetalleEvento(data) {
-    alert('parsear detalleDe evento')
+    alert(data)
     var zona = document.getElementById('zonaDetalleEvento');
     $(".descripcionFiltro").html('');
     zona.style.display = '';
