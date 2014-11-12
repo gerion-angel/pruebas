@@ -2,7 +2,6 @@
  * funcion que carga un listado de eventos en un listado pasados ambos como parametros
  * */
 function parsearListadoEventos(data, id) {
-    alert("parseo de eventos")
     setTimeout(function () {
         setLoader('idBody');
         $("#canvasLoader").css("background-color", "transparent")
@@ -10,7 +9,6 @@ function parsearListadoEventos(data, id) {
     var listado = document.getElementById(id);
     var acumulador = "";
     resetFiltros();
-    alert(data.length)
     try {
         if (data.length == 1) {
             sessionSoloUnEvento = true;
@@ -152,7 +150,6 @@ function parsearDetalleEvento(data) {
     $(".datosIzquierda.evento").html(acumulador);
     $(".imgDetalleEvento").html("<img src='" + evento.urlImagen + "' alt='" + evento.altImagen + "'/>");
     $(".cuerpoDetalleEvento").html("<span>" + evento.altImagen + "</span><p>" + evento.descripcion + "</p>");
-    alert("evento"+acumulador)
     try {
         cargaBannersEvento();
     } catch (e) {
@@ -172,6 +169,7 @@ function parsearDetalleEvento(data) {
             e.stopPropagation();
     });
     sessionSetLoader = true;
+    alert("eventos terminados")
 }
 
 var timer1;
@@ -812,7 +810,7 @@ function parsearListadoActividades(data) {
         acumulador += "</li>";
     }
     listado.innerHTML = acumulador;
-    alert("actividad"+acumulador)
+    
 
 
     var ancho = window.innerWidth;
@@ -824,6 +822,7 @@ function parsearListadoActividades(data) {
     setTimeout(function () {
         $("#tituloListadoActividades").click();//arregla una descolocacion haciendo un click en un punto de la pantalla
     }, 700);
+    alert("actividad terminado")
 }
 
 /*
