@@ -27,11 +27,9 @@ function make_base_auth(user, password)
  * funcion que carga el listado de los eventos 
  */
 function cargaListadoEventos(id) {
-    alert('cargaListaEventos')
     var auth = make_base_auth("app", "Kurbana2k14");
     setCheckConnection();
     if (primerFalloConexion == true) {
-        alert('Eventos desde servidor')
         $.ajax({
             type: "POST",
             url: sessionPath + "evento/proyecto?id=" + sessionProyecto,
@@ -52,7 +50,6 @@ function cargaListadoEventos(id) {
             }
         });
     } else {
-        alert('Eventos desde local')
         var data = selectListadoEventos();
 
     }

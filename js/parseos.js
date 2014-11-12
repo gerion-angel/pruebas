@@ -2,6 +2,7 @@
  * funcion que carga un listado de eventos en un listado pasados ambos como parametros
  * */
 function parsearListadoEventos(data, id) {
+    alert("parseo de eventos")
     setTimeout(function () {
         setLoader('idBody');
         $("#canvasLoader").css("background-color", "transparent")
@@ -9,6 +10,7 @@ function parsearListadoEventos(data, id) {
     var listado = document.getElementById(id);
     var acumulador = "";
     resetFiltros();
+    alert(data.length)
     try {
         if (data.length == 1) {
             sessionSoloUnEvento = true;
