@@ -89,7 +89,6 @@ function parsearListadoEventos(data, id) {
  * funcion que parsea y muestra el detalle de un evento
  */
 function parsearDetalleEvento(data) {
-    alert('entra parsear eventos')
     var zona = document.getElementById('zonaDetalleEvento');
     $(".descripcionFiltro").html('');
     zona.style.display = '';
@@ -170,7 +169,6 @@ function parsearDetalleEvento(data) {
             e.stopPropagation();
     });
     sessionSetLoader = true;
-    alert("eventos terminados")
 }
 
 var timer1;
@@ -291,7 +289,6 @@ function cambiaBannerActividad1() {
 }
 
 function parsearPatrocinadoresEvento(data) {
-    // console.log(data);
     var acumulador = "";
     var cat = "";
     var interno = "";
@@ -717,7 +714,6 @@ function parsearListadoLugares(data) {
  * funcion que parsea el listado de actividades filtradas que devuelve el ser vicio
  */
 function parsearListadoActividades(data) {
-    alert('entra parsear actividad')
     if (sessionSoloUnEvento == true && (sessionFiltroTematica != -1 || sessionFiltroLugar != -1 || sessionFiltroTematica2 != -1 || sessionFiltroParticipantes != -1 || sessionFiltroFecha != -1 || sessionFiltroEtiqueta != -1)) {
         document.getElementById('backListadoActividades').style.display = 'block';
     }
@@ -743,8 +739,7 @@ function parsearListadoActividades(data) {
         }
     } catch (e) {
     }//si falla el servicio
-    // console.log("****" + data)
-    //console.log(data)
+    
     if (data.data.length == 0 && sessionFiltroParticipantes > -1) {
         $("#zonaDetalleParticipante").click();
     }
@@ -824,7 +819,6 @@ function parsearListadoActividades(data) {
     setTimeout(function () {
         $("#tituloListadoActividades").click();//arregla una descolocacion haciendo un click en un punto de la pantalla
     }, 700);
-    alert("actividad terminado")
 }
 
 /*
@@ -833,7 +827,6 @@ function parsearListadoActividades(data) {
 function parsearListadoActividadesFavoritas(data) {
     var listado = document.getElementById('listadoActividadesFavoritas');
     var acumulador = ""
-    //console.log(data)
     if (data.length == 0) {
         acumulador = "<span class='liSinNada'>No ha agregado aún ninguna actividad a sus favoritos, puede hacerlo pulsando sobre el icono de la estrella desde cualquier actividad.</span>";
     } else {
@@ -982,8 +975,6 @@ function parsearActividad(data) {
 
 
     $("#botoneraDetalleActividad").html(htmlBotonera)
-    //console.log(data)
-    //console.log(data.numPatrocinadores)
     setCheckConnection()
 
     if (data.numPatrocinadores * 1 == 0) {

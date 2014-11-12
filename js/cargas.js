@@ -42,7 +42,7 @@ function cargaListadoEventos(id) {
             },
             success: function (data) {
                 parsearListadoEventos(data, id);
-
+                console.log(data)
                 insertEventos(data);
 
             },
@@ -50,6 +50,7 @@ function cargaListadoEventos(id) {
             }
         });
     } else {
+        alert("va a seleccionar la lista de eventos")
         var data = selectListadoEventos();
 
     }
@@ -265,6 +266,7 @@ function cargaDetalleEvento() {
             updateDetalleEvento(data);
         });
     } else {
+        alert("va a seleccionar el detalle del evento")
         var data = selectDetalleEvento();
     }
     setTimeout(function () {

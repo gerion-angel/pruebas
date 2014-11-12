@@ -1297,12 +1297,13 @@ function selectListadoEventos() {
         db.transaction(function (tx) {
             var jsNow = new Date().getTime()
             tx.executeSql('SELECT e.nombre as nombre, e.url_imagen as urlImagen, e.id as id, e.subtitulo as subtitulo, e.fecha_fin_oficial as fechaFin, e.fecha_inicio_oficial as fechaIni FROM evento AS e'
-                    + ' WHERE e.permanente = true OR (e.fecha_fin_activa >= ? AND e.fecha_inicio_activa <= ?)', [jsNow, jsNow], function (tx, results) {
+                    + " WHERE e.permanente = 'true' OR (e.fecha_fin_activa >= ? AND e.fecha_inicio_activa <= ?)", [jsNow, jsNow], function (tx, results) {
                 var len = results.rows.length, i;
                 if (len * 1 == 0) {
                     //launchPop()
                 }
                 var data = [];
+                console.log(data)
                 for (i = 0; i < len; i++) {
                     data.push({
                         nombre: results.rows.item(i).nombre,
