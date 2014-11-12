@@ -169,7 +169,7 @@ function parsearDetalleEvento(data) {
             e.stopPropagation();
     });
     sessionSetLoader = true;
-$("#canvasLoader").hide()
+$("#canvasLoader").remove()
     
 }
 
