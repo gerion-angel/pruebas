@@ -169,6 +169,7 @@ function parsearDetalleEvento(data) {
             e.stopPropagation();
     });
     sessionSetLoader = true;
+    alert("eventos terminados")
 }
 
 var timer1;
@@ -821,6 +822,7 @@ function parsearListadoActividades(data) {
     setTimeout(function () {
         $("#tituloListadoActividades").click();//arregla una descolocacion haciendo un click en un punto de la pantalla
     }, 700);
+    alert("actividad terminado")
 }
 
 /*
