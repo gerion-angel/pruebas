@@ -170,7 +170,6 @@ function parsearDetalleEvento(data) {
     });
     sessionSetLoader = true;
 
-    alert('sale parsear detalleDe evento')
     document.location.href="#actividades"
 }
 
