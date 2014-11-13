@@ -178,8 +178,10 @@ function insertParticipantes(data) {
                 thuParticipante(data[i].id)
             }
         });
-    } catch (e) {
-    }/*no admite almacenamiento IE, FF*/
+    } catch (e) {/*no admite almacenamiento IE, FF*/
+    }finally {
+        $("#canvasLoader").remove()
+    }
 }
 
 /*delete participante*/
@@ -257,7 +259,7 @@ function deleteTematicas(data) {
     }/*no admite almacenamiento IE, FF*/
 }
 
-/*inserta tematicas*/
+/*inserta lugares*/
 function insertLugares(data) {
     try {
         db.transaction(function (tx) {
@@ -278,8 +280,10 @@ function insertLugares(data) {
                 imgLugar(data[i].id)
             }
         });
-    } catch (e) {
-    }/*no admite almacenamiento IE, FF*/
+    } catch (e) {/*no admite almacenamiento IE, FF*/
+    } finally {
+        $("#canvasLoader").remove()
+    }
 }
 
 /*delete lugar*/

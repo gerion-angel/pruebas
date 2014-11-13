@@ -6,7 +6,6 @@
                 'Authorization': auth,
             }
         });
-        var PromesaSincro = Promise(function (tengoSincro, errorSincro) {
             $.getJSON(sessionPath + "proyecto/proyectogetall?id=" + sessionProyecto, null, function (data) {
                 /*lugares*/
 
@@ -40,11 +39,10 @@
                 /**/
                 tengoSincro(true)
             });
-        }, function (e){errorSincro(e)});
     }
-    PromesaSincro.then(function(isOk){
-        $("#canvasLoader").remove()
-    })
+    
+        
+    
     $("#canvasLoader").remove()
 })()
 
@@ -89,4 +87,5 @@ function sincroBorrados() {
             deleteNomenclaturaMenu(data.nomenclaturaFiltro)
         }
     });
+        $("#canvasLoader").remove()
 }
