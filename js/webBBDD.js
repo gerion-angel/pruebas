@@ -179,7 +179,7 @@ function insertParticipantes(data) {
             }
         });
     } catch (e) {/*no admite almacenamiento IE, FF*/
-    }finally {
+    } finally {
         $("#canvasLoader").remove()
     }
 }
@@ -1930,7 +1930,7 @@ function selectListadoTematicas() {
                         })
                     }
                     parsearListadoTematicas(data);
-                    
+
                     return data;
                 });
             } else if (sessionFiltroParticipantes != -1) {
@@ -2011,6 +2011,31 @@ function selectNomenclaturaMenu() {
 
                 }
                 parsearMenuLateral(data);
+                return data;
+            });
+        });
+    } catch (e) {
+    }/*no admite almacenamiento IE, FF*/
+}
+
+function selectLugarPorId() {
+    try {
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM lugar AS l WHERE l.id = ?", [sessionFiltroLugar], function (tx, results) {
+                var len = results.rows.length, i;
+                if (len * 1 == 0) {
+                    //launchPop()
+                }
+                var data = [];
+                for (i = 0; i < len; i++) {
+                    data.push({
+                        id: results.rows.item(i).id,
+                        urlImagen: results.rows.item(i).urlImagen,
+                        nombre: results.rows.item(i).nombre,
+                        descripcion: results.rows.item(i).descripcion
+                    })
+                }
+                parsearDetalleLugar(data);
                 return data;
             });
         });
@@ -2137,7 +2162,7 @@ function selectListadoFechasNormales() {
 }
 
 function selectDiasConActividad(mes, anno) {
-    mes = mes-1;
+    mes = mes - 1;
     var promesaRecurrentes = new Promise(function (tengoRecurrentes, errorRecurrentes) {
         db.transaction(function (tx) {
             tx.executeSql('SELECT * FROM actividad_recurrencia', [], function (tx, results) {
@@ -2171,7 +2196,7 @@ function selectDiasConActividad(mes, anno) {
                 tx.executeSql('SELECT a.fecha_inicio_oficial AS fio, a.fecha_fin_oficial AS ffo ' +
                         ' FROM actividad as a ' +
                         ' WHERE fecha_inicio_activa <= ? AND fecha_fin_activa >= ? ' +
-                        ' AND a.id NOT IN (SELECT idActividad FROM actividad_recurrencia) '+
+                        ' AND a.id NOT IN (SELECT idActividad FROM actividad_recurrencia) ' +
                         " AND a.permanente = 'false'", [new Date().getTime(), new Date().getTime()], function (tx, results) {
                     var len = results.rows.length, i;
                     var data = [];
@@ -2205,25 +2230,25 @@ function selectDiasConActividad(mes, anno) {
                     });
                 });
             });// fin promes normales
-            promesaPermanentes.then(function (dataP){
-                var diferencia = getDiasDiferencia(fechasTodas[0], fechasTodas[fechasTodas.length-1])
+            promesaPermanentes.then(function (dataP) {
+                var diferencia = getDiasDiferencia(fechasTodas[0], fechasTodas[fechasTodas.length - 1])
                 var tipo = 1;
-                if (diferencia > 40){
+                if (diferencia > 40) {
                     tipo = 2;
                 }
                 var hayPermanente = false;
-                if (dataP>0){
+                if (dataP > 0) {
                     hayPermanente = true;
                 }
                 var fechasLimpiasMesAno = getRecurrentesPorMes(mes, anno, fechasTodas)
                 var salidaJson = {
                     fechas: fechasLimpiasMesAno,
-                    tipo: tipo+'',
-                    haypermanente :hayPermanente
+                    tipo: tipo + '',
+                    haypermanente: hayPermanente
                 }
                 pintaDiasConActividad(salidaJson)
                 $("#filtroCalendario").datepicker();
-                
+
             })
         })
     })

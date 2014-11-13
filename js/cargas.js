@@ -291,6 +291,8 @@ function cargaDetalleLugar() {
             parsearDetalleLugar(data);
             updateLugar(data);
         });
+    } else {
+        selectLugarPorId() 
     }
     setCheckConnection()
 }
