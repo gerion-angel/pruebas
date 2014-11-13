@@ -38,6 +38,7 @@
             /**/
         });
     }
+    $("#canvasLoader").remove()
 })()
 
 function sincroBorrados(){
