@@ -701,7 +701,7 @@ function cargaBorrados() {
             'Authorization': auth
         }
     });
-    if (getData("ultimoBorrado") == null) {
+    if (getData("ultimoBorrado")+"" == "null") {
         saveData("ultimoBorrado", 0);
     }
     var ruta = sessionPath + "proyecto/getBorrados?id=" + sessionProyecto + "&ultimoBorrado=" + getData("ultimoBorrado")

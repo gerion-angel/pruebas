@@ -52,9 +52,14 @@ function sincroBorrados() {
             'Authorization': auth,
         }
     });
+    if (getData("ultimoBorrado")+"" == "null") {
+        saveData("ultimoBorrado", 0);
+    }
     var jsNow = new Date().getTime();
-    var ruta = sessionPath + "proyecto/getBorrados?id=" + sessionProyecto + "&fecha=" + jsNow
+    var ruta = sessionPath + "proyecto/getBorrados?id=" + sessionProyecto + "&fecha=" + getData("ultimoBorrado")
     $.getJSON(ruta, null, function (data) {
+        
+        saveData("ultimoBorrado", new Date().getTime());
         if (data.actividad.length > 0) {
             deleteActividad(data.actividad)
         }
