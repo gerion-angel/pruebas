@@ -8,7 +8,7 @@
         });
             $.getJSON(sessionPath + "proyecto/proyectogetall?id=" + sessionProyecto, null, function (data) {
                 /*lugares*/
-
+                console.log(data)
                 insertLugares(data.lugares);
                 /*Participantes*/
                 insertParticipantes(data.participantes);
@@ -37,7 +37,6 @@
                 /*relacion actividad-evento*/
                 insertActividadEventoSincroInicial(data.actEvento);
                 /**/
-                tengoSincro(true)
             });
     }
     
