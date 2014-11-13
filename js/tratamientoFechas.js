@@ -8,12 +8,11 @@ function getFechasRecurrencia(regla) {
         regla = regla.substring(6)
     }
     if (regla.lastIndexOf(';') == regla.length - 1) {
-        regla.substring(0, regla.length - 1)
+        regla = regla.substring(0, regla.length - 1)
     }
     if (regla.lastIndexOf(',') == regla.length - 1) {
-        regla.substring(0, regla.length - 1)
+        regla = regla.substring(0, regla.length - 1)
     }
-
     var rule = RRule.fromString(regla);
     return (rule.all())
 }
@@ -36,6 +35,7 @@ function getArrayFechasRecurrentes(dataRecurrencias) {
     //var dataRecurrencias = selectListadoRecursivas()
     var arrayFechas = [];
     for (var i = 0; i < dataRecurrencias.length; i++) {
+        console.info("for"+i)
         if (arrayFechas == []) {
             arrayFechas = getFechasRecurrencia(dataRecurrencias[i].rule);
         } else {

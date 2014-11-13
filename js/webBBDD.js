@@ -2145,7 +2145,7 @@ function selectDiasConActividad(mes, anno) {
                 var data = [];
                 for (i = 0; i < len; i++) {
                     data.push({
-                        id: results.rows.item(i).id,
+                        id: results.rows.item(i).idActividad,
                         rule: results.rows.item(i).rule
                     })
                 }
