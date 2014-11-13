@@ -31,7 +31,6 @@ function insertEventosSincroIncial(data) {
     try {
         db.transaction(function (tx) {
             for (var i = 0; i < data.length; i++) {
-                alert("Permanente: " + data[i].permanente)
                 var consulta = 'INSERT INTO evento (id ,' +
                         'alt_imagen,' +
                         'descripcion,' +
@@ -1307,7 +1306,6 @@ function selectListadoEventos() {
                 if (len * 1 == 0) {
                     //launchPop()
                 }
-                alert(len)
                 var data = [];
                 for (i = 0; i < len; i++) {
                     data.push({
@@ -1895,7 +1893,7 @@ function selectListadoTematicas() {
     try {
         db.transaction(function (tx) {
             if (sessionFiltroEvento != -1) {
-                tx.executeSql('SELECT t.id as id, t.url_imagen as url_imagen, t.nombre as nombre, t.color as color ' +
+                tx.executeSql('SELECT DISTINCT t.id as id, t.url_imagen as url_imagen, t.nombre as nombre, t.color as color ' +
                         ' FROM tematica as t, actividad_tematica as at, actividad_evento as ae ' +
                         ' WHERE t.id = at.tematica AND at.actividad = ae.actividad AND ae.evento = ?', [sessionFiltroEvento], function (tx, results) {
                     var len = results.rows.length, i;
