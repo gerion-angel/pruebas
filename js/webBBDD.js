@@ -1247,11 +1247,9 @@ function updateDetalleEvento(data) {
     try {
         //DownloadFile(data[0].urlImagen, "aytoArroyoEncomienda", "evento" + data[0].id)
         db.transaction(function (tx) {
-            var ext = "." + data[0].urlImagen.substr(data[0].urlImagen.lastIndexOf('.') + 1);
-            var fp = getData('root')
             var consulta = 'UPDATE evento SET url_imagen=?, descripcion=?, hora_inicio_oficial=?, hora_fin_oficial=?, ' +
                     'nombre=?, subtitulo=?, entradilla=?, fecha_inicio_oficial=?, alt_imagen=?, fecha_fin_oficial=?, permanente=?  WHERE id=?'
-            tx.executeSql(consulta, [fp + "evento" + data[0].id + ext, data[0].descripcion, data[0].horaInicioOficial, data[0].horaFinOficial, data[0].nombre, data[0].subtitulo, data[0].entradilla, new Date(data[0].fechaInicioOficial).getTime(), data[0].altImagen, new Date(data[0].fechaFinOficial).getTime(), data[0].permanente, sessionFiltroEvento], function (i) {
+            tx.executeSql(consulta, [data[0].urlImagen, data[0].descripcion, data[0].horaInicioOficial, data[0].horaFinOficial, data[0].nombre, data[0].subtitulo, data[0].entradilla, new Date(data[0].fechaInicioOficial).getTime(), data[0].altImagen, new Date(data[0].fechaFinOficial).getTime(), data[0].permanente, sessionFiltroEvento], function (i) {
                 //console.info(i)
             }, function (e) {
                 //console.error(e)
