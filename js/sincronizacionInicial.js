@@ -6,6 +6,7 @@
                 'Authorization': auth,
             }
         });
+        alert("entra en la puta sincro")
             $.getJSON(sessionPath + "proyecto/proyectogetall?id=" + sessionProyecto, null, function (data) {
                 /*lugares*/
                 console.log(data)

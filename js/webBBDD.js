@@ -31,6 +31,7 @@ function insertEventosSincroIncial(data) {
     try {
         db.transaction(function (tx) {
             for (var i = 0; i < data.length; i++) {
+                alert("Permanente: " + data[i].permanente)
                 var consulta = 'INSERT INTO evento (id ,' +
                         'alt_imagen,' +
                         'descripcion,' +
