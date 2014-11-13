@@ -1298,7 +1298,6 @@ function selectEventos() {
 
 function selectListadoEventos() {
     try {
-        alert("select listado eventos")
         db.transaction(function (tx) {
             var jsNow = new Date().getTime()
             tx.executeSql('SELECT e.nombre as nombre, e.url_imagen as urlImagen, e.id as id, e.subtitulo as subtitulo, e.fecha_fin_oficial as fechaFin, e.fecha_inicio_oficial as fechaIni FROM evento AS e'
@@ -1308,7 +1307,6 @@ function selectListadoEventos() {
                     //launchPop()
                 }
                 var data = [];
-                console.log(data)
                 for (i = 0; i < len; i++) {
                     data.push({
                         nombre: results.rows.item(i).nombre,
@@ -1407,7 +1405,6 @@ function selectPosEvento() {
 
 function selectDetalleEvento() {
     try {
-       alert('entra select detalle evento')
         db.transaction(function (tx) {
             tx.executeSql('SELECT * FROM evento WHERE id = ?', [sessionFiltroEvento], function (tx, results) {
                 var len = results.rows.length, i;
