@@ -1787,9 +1787,29 @@ function selectActividad(idAct) {
                         fechaFinOficial: results.rows.item(i).fechaFinOficial
                     })
                 }
-                var data1 = {actividad: data}
-                parsearActividad(data1);
-                return data1;
+                tx.executeSql('SELECT * FROM participante AS p, actividad_participante AS ap' +
+                        ' WHERE p.id = ap.participante AND ap.actividad = ?', [idAct], function (tx, resultsP) {
+                    var len = resultsP.rows.length, i;
+                    if (len * 1 == 0) {
+                        //launchPop()
+                    }
+                    var dataP = [];
+                    for (i = 0; i < len; i++) {
+                        dataP.push({
+                            id: resultsP.rows.item(i).id,
+                            descripcion: resultsP.rows.item(i).descripcion,
+                            nombre: resultsP.rows.item(i).nombre,
+                            urlImagen: resultsP.rows.item(i).url_thumbnail
+                        })
+                    }
+                    var data1 = {actividad: data, participantes:dataP}
+                    console.log(data1)
+                    parsearActividad(data1);
+                    return data1;
+                })
+
+
+
             });
         });
     } catch (e) {

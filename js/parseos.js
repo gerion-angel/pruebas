@@ -993,7 +993,7 @@ function parsearActividad(data) {
     } else {
         document.getElementById("admir").style.display = ""
     }
-
+$("#entradillaDetalleActividad").html("<div>" + activity.entradilla + "</div>");
     acumulador = "";
     if (activity.nombreLugar) {
         acumulador = "<span>" + activity.nombreLugar + "</span>";
@@ -1054,9 +1054,9 @@ function parsearActividad(data) {
     /*var data=[{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"},{urlImagen:"http://localhost:8080/Kurbana/participantes/3.png"}]
      parsearGaleriaImagenesActividad(data)*/
 
-    if (activity.entradilla)
+    /*if (activity.entradilla)
         acumulador = activity.entradilla;
-    $("#entradillaDetalleActividad").html("<div>" + acumulador + "</div>");
+    $("#entradillaDetalleActividad").html("<div>" + activity.entradilla + "</div>");*/
 
 
 
