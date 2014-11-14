@@ -922,6 +922,7 @@ function parsearActividad(data) {
     var acumulador = "";
     $("#cabeceraDetalleActividad div table td:first-child").html(acumulaCalen);
     var nombre = activity.nombre;
+    document.getElementById('tituloDetalleActividad').innerHTML = nombre;
     if (nombre.length > 25)
         acumulador += "<span>" + nombre.substring(0, 25) + "...</span>";
     else
@@ -1074,7 +1075,7 @@ function parsearActividad(data) {
     var acumulador = "";
     var numGusta = activity.numMeGusta;
 
-    document.getElementById('tituloDetalleActividad').innerHTML = nombre;
+    
 
     var nomEv = activity.nombreEvento;
     $(".detalleActiPrincipal .calendario .fecha .dia").html(fechaIni.getDate());
