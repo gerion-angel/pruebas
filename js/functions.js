@@ -611,7 +611,7 @@ function muestraPopMas() {
  * funcion que muestra el listado de patrocinadores o lleva a su pagina
  */
 function muestraPopPatrocinadores() {
-    //if (primerFalloConexion == true) {
+    if (primerFalloConexion == true) {
         if (sessionNumEventos == 1) {
             $("#patronId").click();
         } else {
@@ -621,7 +621,9 @@ function muestraPopPatrocinadores() {
                 document.getElementById('popPatrocinadores').style.display = 'block'
             }
         }
-    //}
+    } else {
+        $("#menuActividades .PatrocinadoresMenu").click()
+    }
 }
 
 /*
