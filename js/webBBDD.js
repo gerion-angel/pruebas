@@ -2091,7 +2091,7 @@ function selectListadoLugares() {
                     return data;
                 });
             } else {
-                tx.executeSql("SELECT * FROM lugar AS l WHERE l.id != '0'", [], function (tx, results) {
+                tx.executeSql("SELECT DISTINCT * FROM lugar AS l WHERE l.id != '0'", [], function (tx, results) {
                     var len = results.rows.length, i;
                     if (len * 1 == 0) {
                         //launchPop()
