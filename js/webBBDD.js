@@ -1304,7 +1304,6 @@ function selectListadoEventos() {
                 if (len * 1 == 0) {
                     //launchPop()
                 }
-                alert(len)
                 var data = [];
                 for (i = 0; i < len; i++) {
                     data.push({
