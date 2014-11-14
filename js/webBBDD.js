@@ -1302,7 +1302,7 @@ function selectListadoEventos() {
                     + " WHERE e.permanente = 'true' OR (e.fecha_fin_activa >= ? AND e.fecha_inicio_activa <= ?)", [jsNow, jsNow], function (tx, results) {
                 var len = results.rows.length, i;
                 if (len * 1 == 0) {
-                    //launchPop()
+                    launchPop()
                 }
                 var data = [];
                 for (i = 0; i < len; i++) {

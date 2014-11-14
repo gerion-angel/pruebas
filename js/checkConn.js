@@ -13,9 +13,9 @@ function setCheckConnection() {
 }
 
 function launchPop() {
-    /*$("#conectionPopUp").popup();
+    $("#conectionPopUp").popup();
     document.getElementById("conectionPopUp").style.display = "";
-    $("#conectionPopUp").popup("open");*/
+    $("#conectionPopUp").popup("open");
 }
 
 $("#conectionPopUp").bind({

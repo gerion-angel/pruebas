@@ -956,7 +956,7 @@ function parsearActividad(data) {
         htmlBotonera += "<a><img class='icoMarcablePeque' src='images/corazonNoMarca.png'/></a></td>";
     }
     /*mapa*/
-    htmlBotonera += "<td><a onclick='if(primerFalloConexion==true){cargaVerLugar(" + activity.latitud + ", " + activity.longitud + ", \"" + nombre + "\")}else{/*launchPop()*/}' class='nomenVerLugar'><img src ='images/mapa.png'/></a></td>"
+    htmlBotonera += "<td><a onclick='if(primerFalloConexion==true){cargaVerLugar(" + activity.latitud + ", " + activity.longitud + ", \"" + nombre + "\")}else{launchPop()}' class='nomenVerLugar'><img src ='images/mapa.png'/></a></td>"
 
     /*favor*/
     htmlBotonera += "<td class='noMostrar'><a id='checkFavAct" + idAct + "' class='checkFavorito' onclick='setActividadFavorito(\"" + idAct + "\", this)'>";

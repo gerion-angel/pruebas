@@ -118,7 +118,7 @@ function setActividadFavorito(id, elem) {
             hideLoader()
         }, 1);
     } else {
-        //launchPop();
+        launchPop();
     }
 }
 
@@ -315,7 +315,7 @@ function siMeGusta(id, elem) {//setLoaderTemporal()
 //        if(sessionActividadMostrada>-1)
 //            cargaListadoActividades()
         } else {
-            //launchPop()
+            launchPop()
         }
         hideLoader()
     }, 1);
@@ -587,7 +587,7 @@ function muestraPopShare() {
             document.getElementById('popShare').style.display = 'block'
         }
     } else {
-        //launchPop()
+        launchPop()
     }
 }
 
