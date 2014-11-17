@@ -1,4 +1,4 @@
-var db = window.openDatabase("localDB", "1.0", "localDB", 1024 * 1024 * 1024);
+var db = window.openDatabase("localDB", "1.0", "localDB", 50 * 1024 * 1024);
 createBBDD();
 
 /*inserta los eventos*/
